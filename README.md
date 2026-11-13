@@ -22,9 +22,14 @@ La consommation, la production par filière, les prix de gros, les échanges aux
 |---|---|---|---|
 | **[GUIDE.md](GUIDE.md)** · 13 étapes, chaque commande à copier · **[PDF de 15 pages](docs/EEIP_Guide_Public.pdf)** | **[docs/EEIP_Rapport_PowerBI.pdf](docs/EEIP_Rapport_PowerBI.pdf)** · 8 pages | **[docs/MODELE_SEMANTIQUE.md](docs/MODELE_SEMANTIQUE.md)** · 23 tables, 261 mesures et leur DAX | **[sql/](sql)** 17 scripts · **[ingestion/](ingestion)** Python · **[powerbi/](powerbi)** PBIP · **[tests/](tests)** |
 
+## 🎬 La démo en mouvement
+
+<p align="center"><img src="docs/gifs/eeip_ouverture.gif" alt="EEIP en mouvement : l'ouverture, les chiffres clés et les quatre producteurs" width="100%"></p>
+
 <details>
 <summary><b>📑 Sommaire</b></summary>
 
+- [🎬 La démo en mouvement](#-la-démo-en-mouvement)
 - [📸 Aperçu du tableau de bord](#-aperçu-du-tableau-de-bord)
 - [📊 Résultats clés](#-résultats-clés)
 - [⚡ Ce que disent les données](#-ce-que-disent-les-données)
@@ -187,6 +192,8 @@ Chaque mesure garde son lignage complet : **producteur → code exact de la sour
 
 ## 🏗️ Architecture
 
+<p align="center"><img src="docs/gifs/eeip_entrepot.gif" alt="L'entrepôt en mouvement : architecture, ingestion, partitions, golden record, historisation, modèle, exploitation" width="100%"></p>
+
 ![Architecture d'EEIP](docs/diagrammes/png/architecture.png)
 
 | Schéma | Rôle | Groupe de fichiers |
@@ -248,6 +255,8 @@ Tout est stocké en **UTC**. `core.FuseauDecalage` pré-calcule les périodes d'
 ---
 
 ## 📈 Le rapport Power BI
+
+<p align="center"><img src="docs/gifs/eeip_powerbi.gif" alt="Les huit pages du rapport Power BI en mouvement" width="100%"></p>
 
 ![De SQL Server au rapport Power BI](docs/diagrammes/png/couche_powerbi.png)
 
@@ -476,6 +485,7 @@ eeip-sql-server/
     ├── MODELE_SEMANTIQUE.md              tables, relations, 261 mesures et leur DAX
     ├── captures/                         les 8 pages du rapport en image
     ├── diagrammes/                       12 diagrammes (SVG et PNG)
+    ├── gifs/                             la démo en mouvement : ouverture, entrepôt, rapport
     └── images/                           bannière, aperçu pour les réseaux sociaux
 ```
 
