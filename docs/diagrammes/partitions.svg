@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="Inter, sans-serif">
+<defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#E4572E"/></marker></defs>
+<rect width="1000" height="420" fill="#F7FAF9"/>
+<text x="30" y="38" font-size="20" font-weight="700" fill="#0A2324">Partitions mensuelles et fenêtre glissante</text>
+<text x="30" y="60" font-size="12.5" fill="#5B6B82">pf_MoisUtc, RANGE RIGHT : chaque borne est le premier instant de son mois ; la dernière partition reste toujours vide</text>
+<rect x="30" y="100" width="120" height="110" rx="10" fill="#5D6D7E"/>
+<text x="90" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Partition 1</text>
+<text x="90" y="150" text-anchor="middle" font-size="11" fill="#E5E8E8">avant 2015</text><text x="90" y="168" text-anchor="middle" font-size="11" fill="#E5E8E8">Eurostat 1990+</text><text x="90" y="196" text-anchor="middle" font-size="10" fill="#D0D3D4">FG_ARCHIVE</text>
+<g font-size="10.5" text-anchor="middle">
+ <rect x="165" y="100" width="70" height="110" rx="8" fill="#1B4F72"/><text x="200" y="140" fill="#fff" font-weight="700">2015-01</text><text x="200" y="160" fill="#AED6F1">ARCHIVE</text>
+ <rect x="243" y="100" width="70" height="110" rx="8" fill="#1B4F72"/><text x="278" y="140" fill="#fff" font-weight="700">2015-02</text><text x="278" y="160" fill="#AED6F1">ARCHIVE</text>
+ <text x="345" y="160" font-size="20" fill="#5B6B82">…</text>
+ <rect x="378" y="100" width="70" height="110" rx="8" fill="#1B4F72"/><text x="413" y="140" fill="#fff" font-weight="700">2024-10</text><text x="413" y="160" fill="#AED6F1">ARCHIVE</text>
+ <rect x="456" y="100" width="70" height="110" rx="8" fill="#2E86C1"/><text x="491" y="140" fill="#fff" font-weight="700">2024-11</text><text x="491" y="160" fill="#D6EAF8">COLUMN</text><text x="491" y="174" fill="#D6EAF8">STORE</text>
+ <text x="558" y="160" font-size="20" fill="#5B6B82">…</text>
+ <rect x="590" y="100" width="70" height="110" rx="8" fill="#0E9F8E"/><text x="625" y="140" fill="#fff" font-weight="700">2026-11</text><text x="625" y="160" fill="#E6FFFB">mois en</text><text x="625" y="174" fill="#E6FFFB">cours</text>
+ <rect x="668" y="100" width="70" height="110" rx="8" fill="#fff" stroke="#0E9F8E" stroke-dasharray="4 3"/><text x="703" y="140" fill="#0E9F8E" font-weight="700">2026-12</text><text x="703" y="160" fill="#5B6B82">prête</text>
+ <rect x="746" y="100" width="70" height="110" rx="8" fill="#fff" stroke="#0E9F8E" stroke-dasharray="4 3"/><text x="781" y="140" fill="#0E9F8E" font-weight="700">2027-01</text><text x="781" y="160" fill="#5B6B82">prête</text>
+ <rect x="824" y="100" width="70" height="110" rx="8" fill="#fff" stroke="#0E9F8E" stroke-dasharray="4 3"/><text x="859" y="140" fill="#0E9F8E" font-weight="700">2027-02</text><text x="859" y="160" fill="#5B6B82">prête</text>
+ <rect x="902" y="100" width="70" height="110" rx="8" fill="#FDEDEC" stroke="#E4572E"/><text x="937" y="136" fill="#E4572E" font-weight="700">au-delà</text><text x="937" y="156" fill="#E4572E">VIDE</text><text x="937" y="172" fill="#E4572E">toujours</text>
+</g>
+<text x="165" y="232" font-size="11" fill="#5B6B82">FG_MESURE : un mois = une partition, columnstore ordonné (SerieId, InstantUtc)</text>
+<path d="M937,260 C937,300 820,300 790,262" stroke="#E4572E" stroke-width="2" fill="none" marker-end="url(#f)"/>
+<text x="600" y="315" font-size="12" font-weight="700" fill="#0A2324">Chaque dimanche : ops.usp_Partition_Etendre</text>
+<text x="600" y="333" font-size="11" fill="#5B6B82">SPLIT de la partition vide : instantané, aucune ligne ne bouge</text>
+<text x="600" y="351" font-size="11" fill="#5B6B82">l'intégration refuse tout instant au-delà de la dernière borne</text>
+<text x="30" y="315" font-size="12" font-weight="700" fill="#0A2324">Chaque dimanche : ops.usp_Partition_Archiver</text>
+<text x="30" y="333" font-size="11" fill="#5B6B82">les mois de plus de 24 mois passent en COLUMNSTORE_ARCHIVE</text>
+<text x="30" y="351" font-size="11" fill="#5B6B82">compression supplémentaire, lecture toujours possible</text>
+<text x="30" y="390" font-size="11.5" fill="#0A2324">Une requête « janvier 2025 » ne lit qu'une partition : c'est l'élimination de partitions (labo 2).</text>
+</svg>

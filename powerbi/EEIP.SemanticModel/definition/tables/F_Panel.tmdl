@@ -1,0 +1,170 @@
+/// Eurostat : un pays, une année, depuis 1990.
+table F_Panel
+	lineageTag: 67e3d534-e71a-5ced-9de0-039475f6ee98
+
+	column Zone
+		dataType: string
+		isHidden
+		lineageTag: d850a984-747f-545a-8008-0c42e46d9617
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Annee
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9089285b-0742-5941-b541-765851982209
+		summarizeBy: none
+		sourceColumn: Annee
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductionTWh
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7c5336aa-eb95-5b8d-a35b-cbf09e469b48
+		summarizeBy: none
+		sourceColumn: ProductionTWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartNucleaire
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6264ff60-640d-50ff-9677-9d1bc96fcad5
+		summarizeBy: none
+		sourceColumn: PartNucleaire
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartFossile
+		dataType: double
+		formatString: #,0.00
+		lineageTag: da5814bc-6c36-52e2-9758-92b7f0ed42b8
+		summarizeBy: none
+		sourceColumn: PartFossile
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartRenouvelableMix
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 069438d2-e4f4-5627-b33f-da027528323e
+		summarizeBy: none
+		sourceColumn: PartRenouvelableMix
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartRenouvelableOfficielle
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bb226653-fe06-589a-9f39-2221624867cc
+		summarizeBy: none
+		sourceColumn: PartRenouvelableOfficielle
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsoFinaleTWh
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0bf73ce5-0f3f-54b7-b94d-c3b43a128247
+		summarizeBy: none
+		sourceColumn: ConsoFinaleTWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column ImportsTWh
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c29c04cf-3a54-5b3a-bfa3-d6eeb588913b
+		summarizeBy: none
+		sourceColumn: ImportsTWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExportsTWh
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bbf0ed10-b3b1-5027-8341-63742f817373
+		summarizeBy: none
+		sourceColumn: ExportsTWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoldeExportateurTWh
+		dataType: double
+		formatString: #,0.00
+		lineageTag: fb454449-d0c9-5b4d-9735-83aab0bd83d7
+		summarizeBy: none
+		sourceColumn: SoldeExportateurTWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrixMenages
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ef22a801-e769-5b33-a07d-c2cbd1bf8ab3
+		summarizeBy: none
+		sourceColumn: PrixMenages
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrixEntreprises
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1213974c-7e70-55ae-a8a5-dfa27f1e325d
+		summarizeBy: none
+		sourceColumn: PrixEntreprises
+
+		annotation SummarizationSetBy = Automatic
+
+	column IntensiteCO2
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 28f8913d-1f2e-5078-b8e6-8e00488258b1
+		summarizeBy: none
+		sourceColumn: IntensiteCO2
+
+		annotation SummarizationSetBy = Automatic
+
+	column GesElectriciteMt
+		dataType: double
+		formatString: #,0.00
+		lineageTag: affb0144-08e9-57d6-8cb7-e037267f9493
+		summarizeBy: none
+		sourceColumn: GesElectriciteMt
+
+		annotation SummarizationSetBy = Automatic
+
+	column GesTotalMt
+		dataType: double
+		formatString: #,0.00
+		lineageTag: abefbd71-6212-58d5-b3d7-5962ecde2006
+		summarizeBy: none
+		sourceColumn: GesTotalMt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dependance
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f2d9234d-d61a-5787-b2ff-52bbf2b2bafd
+		summarizeBy: none
+		sourceColumn: Dependance
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Panel = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Panel"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "Annee", "ProductionTWh", "PartNucleaire", "PartFossile", "PartRenouvelableMix", "PartRenouvelableOfficielle", "ConsoFinaleTWh", "ImportsTWh", "ExportsTWh", "SoldeExportateurTWh", "PrixMenages", "PrixEntreprises", "IntensiteCO2", "GesElectriciteMt", "GesTotalMt", "Dependance"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"Annee", Int64.Type}, {"ProductionTWh", type number}, {"PartNucleaire", type number}, {"PartFossile", type number}, {"PartRenouvelableMix", type number}, {"PartRenouvelableOfficielle", type number}, {"ConsoFinaleTWh", type number}, {"ImportsTWh", type number}, {"ExportsTWh", type number}, {"SoldeExportateurTWh", type number}, {"PrixMenages", type number}, {"PrixEntreprises", type number}, {"IntensiteCO2", type number}, {"GesElectriciteMt", type number}, {"GesTotalMt", type number}, {"Dependance", type number}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

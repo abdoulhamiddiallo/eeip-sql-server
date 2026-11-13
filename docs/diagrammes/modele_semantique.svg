@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 628" font-family="Inter, sans-serif">
+<rect width="1000" height="628" fill="#F7FAF9"/>
+<text x="30" y="38" font-size="20" font-weight="700" fill="#0A2324">Le modèle sémantique : une matrice en bus</text>
+<text x="30" y="60" font-size="12.5" fill="#5B6B82">12 tables de faits (lignes) partagent 8 dimensions conformes (colonnes) : un point = une relation un-à-plusieurs, filtre simple</text>
+<text transform="translate(365.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#0A2324">D_Zone</text>
+<text transform="translate(415.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#0A2324">D_Jour</text>
+<text transform="translate(465.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#0A2324">D_Famille</text>
+<text transform="translate(515.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#0A2324">D_Source</text>
+<text transform="translate(565.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#0A2324">D_Voisin</text>
+<text transform="translate(615.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#7A4FB3">D_Heure</text>
+<text transform="translate(665.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#7A4FB3">D_Mois</text>
+<text transform="translate(715.0,138) rotate(-38)" font-size="12" font-weight="700" fill="#7A4FB3">D_Annee</text>
+<text x="30" y="136" font-size="10.5" font-weight="700" fill="#5B6B82" letter-spacing="1.2">TABLE DE FAITS · GRAIN</text>
+<text x="754" y="136" font-size="10.5" font-weight="700" fill="#5B6B82" letter-spacing="1.2">SOURCE (SCHÉMA bi)</text>
+<rect x="30" y="153" width="4" height="22" rx="2" fill="#0E9F8E"/>
+<rect x="336" y="151" width="400" height="26" fill="#E8F1EF"/>
+<text x="42" y="168" font-size="11.5" font-weight="700" fill="#14302F">F_Mix</text>
+<text x="140" y="168" font-size="10.5" fill="#5B6B82">zone × jour × famille × source</text>
+<circle cx="361.0" cy="164.0" r="7" fill="#0E9F8E"/>
+<circle cx="411.0" cy="164.0" r="7" fill="#0E9F8E"/>
+<circle cx="461.0" cy="164.0" r="7" fill="#0E9F8E"/>
+<circle cx="511.0" cy="164.0" r="7" fill="#0E9F8E"/>
+<circle cx="561.0" cy="164.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="164.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="164.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="164.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="168" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.MixJour</text>
+<rect x="30" y="181" width="4" height="22" rx="2" fill="#0E9F8E"/>
+<text x="42" y="196" font-size="11.5" font-weight="700" fill="#14302F">F_Conso</text>
+<text x="140" y="196" font-size="10.5" fill="#5B6B82">zone × jour local</text>
+<circle cx="361.0" cy="192.0" r="7" fill="#0E9F8E"/>
+<circle cx="411.0" cy="192.0" r="7" fill="#0E9F8E"/>
+<circle cx="461.0" cy="192.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="192.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="192.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="192.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="192.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="192.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="196" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.ConsoJour</text>
+<rect x="30" y="209" width="4" height="22" rx="2" fill="#0E9F8E"/>
+<rect x="336" y="207" width="400" height="26" fill="#E8F1EF"/>
+<text x="42" y="224" font-size="11.5" font-weight="700" fill="#14302F">F_Prix</text>
+<text x="140" y="224" font-size="10.5" fill="#5B6B82">zone de prix × jour</text>
+<circle cx="361.0" cy="220.0" r="7" fill="#0E9F8E"/>
+<circle cx="411.0" cy="220.0" r="7" fill="#0E9F8E"/>
+<circle cx="461.0" cy="220.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="220.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="220.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="220.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="220.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="220.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="224" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.PrixJour</text>
+<rect x="30" y="237" width="4" height="22" rx="2" fill="#0E9F8E"/>
+<text x="42" y="252" font-size="11.5" font-weight="700" fill="#14302F">F_Echange</text>
+<text x="140" y="252" font-size="10.5" fill="#5B6B82">pays × voisin × jour</text>
+<circle cx="361.0" cy="248.0" r="7" fill="#0E9F8E"/>
+<circle cx="411.0" cy="248.0" r="7" fill="#0E9F8E"/>
+<circle cx="461.0" cy="248.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="248.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="248.0" r="7" fill="#0E9F8E"/>
+<circle cx="611.0" cy="248.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="248.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="248.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="252" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.EchangeJour</text>
+<rect x="30" y="265" width="4" height="22" rx="2" fill="#0E9F8E"/>
+<rect x="336" y="263" width="400" height="26" fill="#E8F1EF"/>
+<text x="42" y="280" font-size="11.5" font-weight="700" fill="#14302F">F_Carbone</text>
+<text x="140" y="280" font-size="10.5" fill="#5B6B82">zone × jour, g de CO2 par kWh</text>
+<circle cx="361.0" cy="276.0" r="7" fill="#0E9F8E"/>
+<circle cx="411.0" cy="276.0" r="7" fill="#0E9F8E"/>
+<circle cx="461.0" cy="276.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="276.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="276.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="276.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="276.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="276.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="280" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.CarboneJour</text>
+<line x1="30" y1="289" x2="970" y2="289" stroke="#C9D8D4" stroke-dasharray="3 3"/>
+<rect x="30" y="293" width="4" height="22" rx="2" fill="#D9A514"/>
+<text x="42" y="308" font-size="11.5" font-weight="700" fill="#14302F">F_Profil</text>
+<text x="140" y="308" font-size="10.5" fill="#5B6B82">zone × mois × heure locale</text>
+<circle cx="361.0" cy="304.0" r="7" fill="#D9A514"/>
+<circle cx="411.0" cy="304.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="304.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="304.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="304.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="304.0" r="7" fill="#D9A514"/>
+<circle cx="661.0" cy="304.0" r="7" fill="#D9A514"/>
+<circle cx="711.0" cy="304.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="308" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.ProfilHoraire</text>
+<line x1="30" y1="317" x2="970" y2="317" stroke="#C9D8D4" stroke-dasharray="3 3"/>
+<rect x="30" y="321" width="4" height="22" rx="2" fill="#7A4FB3"/>
+<rect x="336" y="319" width="400" height="26" fill="#E8F1EF"/>
+<text x="42" y="336" font-size="11.5" font-weight="700" fill="#14302F">F_Panel</text>
+<text x="140" y="336" font-size="10.5" fill="#5B6B82">pays × année, Eurostat</text>
+<circle cx="361.0" cy="332.0" r="7" fill="#7A4FB3"/>
+<circle cx="411.0" cy="332.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="332.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="332.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="332.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="332.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="332.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="332.0" r="7" fill="#7A4FB3"/>
+<text x="754" y="336" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.vw_Panel</text>
+<line x1="30" y1="345" x2="970" y2="345" stroke="#C9D8D4" stroke-dasharray="3 3"/>
+<rect x="30" y="349" width="4" height="22" rx="2" fill="#2E86C1"/>
+<text x="42" y="364" font-size="11.5" font-weight="700" fill="#14302F">F_Volume</text>
+<text x="140" y="364" font-size="10.5" fill="#5B6B82">source × indicateur</text>
+<circle cx="361.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<circle cx="411.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="360.0" r="7" fill="#2E86C1"/>
+<circle cx="561.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="360.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="364" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.vw_Volume</text>
+<rect x="30" y="377" width="4" height="22" rx="2" fill="#2E86C1"/>
+<rect x="336" y="375" width="400" height="26" fill="#E8F1EF"/>
+<text x="42" y="392" font-size="11.5" font-weight="700" fill="#14302F">F_Revision</text>
+<text x="140" y="392" font-size="10.5" fill="#5B6B82">source × version remplacée</text>
+<circle cx="361.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<circle cx="411.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="388.0" r="7" fill="#2E86C1"/>
+<circle cx="561.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="388.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="392" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.vw_Revision</text>
+<rect x="30" y="405" width="4" height="22" rx="2" fill="#2E86C1"/>
+<text x="42" y="420" font-size="11.5" font-weight="700" fill="#14302F">F_Lot</text>
+<text x="140" y="420" font-size="10.5" fill="#5B6B82">un lot de chargement</text>
+<circle cx="361.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="411.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="416.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="420" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.vw_Lot</text>
+<rect x="30" y="433" width="4" height="22" rx="2" fill="#2E86C1"/>
+<rect x="336" y="431" width="400" height="26" fill="#E8F1EF"/>
+<text x="42" y="448" font-size="11.5" font-weight="700" fill="#14302F">F_Qualite</text>
+<text x="140" y="448" font-size="10.5" fill="#5B6B82">une règle de qualité</text>
+<circle cx="361.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="411.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="444.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="448" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.vw_Qualite</text>
+<rect x="30" y="461" width="4" height="22" rx="2" fill="#2E86C1"/>
+<text x="42" y="476" font-size="11.5" font-weight="700" fill="#14302F">F_Partition</text>
+<text x="140" y="476" font-size="10.5" fill="#5B6B82">une partition mensuelle</text>
+<circle cx="361.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="411.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="461.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="511.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="561.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="611.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="661.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<circle cx="711.0" cy="472.0" r="2" fill="#B5C7C3"/>
+<text x="754" y="476" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#0A2324">bi.vw_Partition</text>
+<rect x="30" y="498" width="12" height="12" rx="3" fill="#0E9F8E"/><text x="48" y="508" font-size="11" font-weight="700" fill="#14302F">JOUR PAR JOUR</text>
+<rect x="170" y="498" width="12" height="12" rx="3" fill="#D9A514"/><text x="188" y="508" font-size="11" font-weight="700" fill="#14302F">HEURE PAR HEURE</text>
+<rect x="320" y="498" width="12" height="12" rx="3" fill="#7A4FB3"/><text x="338" y="508" font-size="11" font-weight="700" fill="#14302F">EUROPE DEPUIS 1990</text>
+<rect x="490" y="498" width="12" height="12" rx="3" fill="#2E86C1"/><text x="508" y="508" font-size="11" font-weight="700" fill="#14302F">PLATEFORME</text>
+<text x="640" y="508" font-size="11" fill="#5B6B82"><tspan fill="#0A2324" font-weight="700">■</tspan> dimension lue dans une vue   <tspan fill="#7A4FB3" font-weight="700">■</tspan> dimension calculée en DAX</text>
+<rect x="30" y="528" width="302" height="84" rx="10" fill="#fff" stroke="#C9D8D4"/><rect x="30" y="528" width="5" height="84" rx="2" fill="#0A2324"/>
+<text x="46" y="550" font-size="12.5" font-weight="700" fill="#0A2324">Metrics</text>
+<text x="46" y="569" font-size="10.8" fill="#14302F">261 mesures DAX en 9 dossiers : contexte,</text>
+<text x="46" y="584" font-size="10.8" fill="#14302F">système électrique, journée type, prix,</text>
+<text x="46" y="599" font-size="10.8" fill="#14302F">échanges, carbone, régions, Europe, plateforme</text>
+<rect x="348" y="528" width="302" height="84" rx="10" fill="#fff" stroke="#C9D8D4"/><rect x="348" y="528" width="5" height="84" rx="2" fill="#7A4FB3"/>
+<text x="364" y="550" font-size="12.5" font-weight="700" fill="#7A4FB3">Choix Année · Choix Année Europe</text>
+<text x="364" y="569" font-size="10.8" fill="#14302F">tables déconnectées : le segment pilote les</text>
+<text x="364" y="584" font-size="10.8" fill="#14302F">cartes et les classements sans filtrer les</text>
+<text x="364" y="599" font-size="10.8" fill="#14302F">courbes</text>
+<rect x="666" y="528" width="302" height="84" rx="10" fill="#fff" stroke="#C9D8D4"/><rect x="666" y="528" width="5" height="84" rx="2" fill="#0E9F8E"/>
+<text x="682" y="550" font-size="12.5" font-weight="700" fill="#0E9F8E">D_Zone · 54 zones</text>
+<text x="682" y="569" font-size="10.8" fill="#14302F">pays, zones de prix et régions ; un pays</text>
+<text x="682" y="584" font-size="10.8" fill="#14302F">retrouve sa zone de marché par TREATAS, sans</text>
+<text x="682" y="599" font-size="10.8" fill="#14302F">relation ambiguë</text>
+</svg>

@@ -1,0 +1,79 @@
+/// Prix spot du marché à un jour, en €/MWh, par zone de prix et par jour.
+table F_Prix
+	lineageTag: 3c37dc3e-52a9-5d5c-b970-0b67db4bc78d
+
+	column Zone
+		dataType: string
+		isHidden
+		lineageTag: 127717d5-3aba-5eb4-9868-b15f012cb5f4
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		dataType: dateTime
+		isHidden
+		formatString: dd/MM/yyyy
+		lineageTag: 3611fe35-acc9-57dd-b4db-8d64567af601
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrixMoyen
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a3e56c05-c3eb-534a-9a63-32688a5f6853
+		summarizeBy: none
+		sourceColumn: PrixMoyen
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrixMin
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 652e0690-1d84-5ee9-abe7-d2b12ff00050
+		summarizeBy: none
+		sourceColumn: PrixMin
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrixMax
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c2f285e7-4f98-5976-bdb5-47f66280e124
+		summarizeBy: none
+		sourceColumn: PrixMax
+
+		annotation SummarizationSetBy = Automatic
+
+	column HeuresNegatives
+		dataType: double
+		formatString: #,0.0
+		lineageTag: e8128a2c-9732-5ea8-822c-48af160b16cc
+		summarizeBy: none
+		sourceColumn: HeuresNegatives
+
+		annotation SummarizationSetBy = Automatic
+
+	column Granularite
+		dataType: string
+		lineageTag: c2c1af93-7111-5ac9-aa5c-a35307325d67
+		summarizeBy: none
+		sourceColumn: Granularite
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Prix = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "PrixJour"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "Jour", "PrixMoyen", "PrixMin", "PrixMax", "HeuresNegatives", "Granularite"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"Jour", type date}, {"PrixMoyen", type number}, {"PrixMin", type number}, {"PrixMax", type number}, {"HeuresNegatives", type number}, {"Granularite", type text}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

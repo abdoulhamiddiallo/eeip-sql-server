@@ -1,0 +1,70 @@
+/// Flux physiques par frontière et par sens, rattachés aux pays.
+table F_Echange
+	lineageTag: 40d09801-0396-531e-8767-797718a237db
+
+	column Pays
+		dataType: string
+		isHidden
+		lineageTag: b99fc0d8-d336-5660-997d-bb42d54cb20b
+		summarizeBy: none
+		sourceColumn: Pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column Voisin
+		dataType: string
+		isHidden
+		lineageTag: be4d7f7c-c845-56ad-aa8e-8d1fe544068d
+		summarizeBy: none
+		sourceColumn: Voisin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		dataType: dateTime
+		isHidden
+		formatString: dd/MM/yyyy
+		lineageTag: d3c03538-b1bf-51f2-bc30-36df75c942f5
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column ImportMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: 6e9d1ca9-30ef-5aa7-9bf7-2bf094570fa6
+		summarizeBy: none
+		sourceColumn: ImportMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExportMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: 02f7ce42-55b1-501a-9cd3-654b78b9d99f
+		summarizeBy: none
+		sourceColumn: ExportMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: d69b1b15-f812-5085-aefc-25e6d2bfc9bf
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Echange = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "EchangeJour"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Pays", "Voisin", "Jour", "ImportMWh", "ExportMWh", "Source"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Pays", type text}, {"Voisin", type text}, {"Jour", type date}, {"ImportMWh", type number}, {"ExportMWh", type number}, {"Source", type text}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

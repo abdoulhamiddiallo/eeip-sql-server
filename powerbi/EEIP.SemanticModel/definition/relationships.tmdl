@@ -1,0 +1,80 @@
+relationship 3e09765e-d317-5f75-87fa-49e2e983f0d6
+	fromColumn: F_Mix.Zone
+	toColumn: D_Zone.Zone
+
+relationship a6736157-655e-5dd4-b3c7-2fe473a5174f
+	fromColumn: F_Mix.Jour
+	toColumn: D_Jour.Jour
+
+relationship ae0fd2e0-dcca-58c8-9562-7f436082b56c
+	fromColumn: F_Mix.Famille
+	toColumn: D_Famille.Famille
+
+relationship cd1a2efa-a6b7-5def-aa79-541ae75ba81d
+	fromColumn: F_Mix.Source
+	toColumn: D_Source.Source
+
+relationship 4ae18310-f5a6-5746-aa44-e59994d03465
+	fromColumn: F_Conso.Zone
+	toColumn: D_Zone.Zone
+
+relationship 7118c362-0525-599b-b0c2-31c3d8d477f7
+	fromColumn: F_Conso.Jour
+	toColumn: D_Jour.Jour
+
+relationship bbfa687c-42fc-567b-9d29-f3b2c50923cf
+	fromColumn: F_Prix.Zone
+	toColumn: D_Zone.Zone
+
+relationship 563f0df4-3bbb-592c-8180-fafe51f7cbba
+	fromColumn: F_Prix.Jour
+	toColumn: D_Jour.Jour
+
+relationship 5b1df4e1-dc1d-5e9f-bc78-aa465558102e
+	fromColumn: F_Echange.Pays
+	toColumn: D_Zone.Zone
+
+relationship 390d43f8-0e26-5d81-9551-a8615585d1cb
+	fromColumn: F_Echange.Voisin
+	toColumn: D_Voisin.Voisin
+
+relationship 10f1f3b1-776c-54b0-966c-858f632779f2
+	fromColumn: F_Echange.Jour
+	toColumn: D_Jour.Jour
+
+relationship 52684225-2d66-5be9-94c4-e17a1458601b
+	fromColumn: F_Carbone.Zone
+	toColumn: D_Zone.Zone
+
+relationship 9128c1b3-0690-5b25-bafd-b5b51dc11f28
+	fromColumn: F_Carbone.Jour
+	toColumn: D_Jour.Jour
+
+relationship 66554831-153b-5cd9-b00b-504edcb7d02d
+	fromColumn: F_Profil.Zone
+	toColumn: D_Zone.Zone
+
+relationship 843f907e-1186-5d3f-ac2e-17f3ae7f481f
+	fromColumn: F_Profil.Heure
+	toColumn: D_Heure.Heure
+
+relationship 3a38c4b7-8c3a-5964-8e7a-fce3a0140664
+	fromColumn: F_Profil.Mois
+	toColumn: D_Mois.Mois
+
+relationship 343d9529-0e33-5bf3-b4ee-8c97f5422e1b
+	fromColumn: F_Panel.Zone
+	toColumn: D_Zone.Zone
+
+relationship 97e44378-8faa-5405-a32c-6a62ce358553
+	fromColumn: F_Panel.Annee
+	toColumn: D_Annee.Annee
+
+relationship 5d3558d7-29e3-51c8-a64f-9e9ad950c106
+	fromColumn: F_Revision.Source
+	toColumn: D_Source.Source
+
+relationship 4b780df4-e642-5f8a-9f32-896c61257509
+	fromColumn: F_Volume.Source
+	toColumn: D_Source.Source
+

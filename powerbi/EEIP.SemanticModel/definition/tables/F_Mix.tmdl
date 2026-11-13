@@ -1,0 +1,71 @@
+/// Production quotidienne par famille, la meilleure source retenue (golden record).
+table F_Mix
+	lineageTag: 7344958f-9cf1-5a55-a16b-105db9763862
+
+	column Zone
+		dataType: string
+		isHidden
+		lineageTag: 6f440562-b2c2-5c25-810b-bbc9174b82b6
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		dataType: dateTime
+		isHidden
+		formatString: dd/MM/yyyy
+		lineageTag: aa63257f-c61d-5d52-959c-28591d052a9d
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Famille
+		dataType: string
+		isHidden
+		lineageTag: ee43c7b6-f5d8-50be-b896-c73413e1c3f7
+		summarizeBy: none
+		sourceColumn: Famille
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		isHidden
+		lineageTag: 54fc9e6c-2697-5266-8c20-0bed8887e2e1
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnergieMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: e3ab45fe-3007-5171-bd49-78ab622a8019
+		summarizeBy: none
+		sourceColumn: EnergieMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column Completude
+		dataType: double
+		formatString: 0%
+		lineageTag: 8f78af59-154d-51c9-b76b-f6dfc912a392
+		summarizeBy: none
+		sourceColumn: Completude
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Mix = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "MixJour"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "Jour", "Famille", "Source", "EnergieMWh", "Completude"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"Jour", type date}, {"Famille", type text}, {"Source", type text}, {"EnergieMWh", type number}, {"Completude", type number}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

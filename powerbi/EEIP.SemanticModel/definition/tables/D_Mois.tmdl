@@ -1,0 +1,49 @@
+table D_Mois
+	lineageTag: f1b8cb56-320c-52c8-bfac-ed2c8d51a1a8
+
+	column Mois
+		dataType: int64
+		formatString: 0
+		lineageTag: 42dbb309-fe08-55d7-b44d-d333ab586fb8
+		summarizeBy: none
+		sourceColumn: [Mois]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomMois
+		dataType: string
+		lineageTag: a4808e22-2b0b-5f13-9ad5-935c621cdb3b
+		summarizeBy: none
+		sourceColumn: [NomMois]
+		sortByColumn: Mois
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abrege
+		dataType: string
+		lineageTag: 19bb35ef-ae66-51a7-8ccf-590b0b15a3cf
+		summarizeBy: none
+		sourceColumn: [Abrege]
+		sortByColumn: Mois
+
+		annotation SummarizationSetBy = Automatic
+
+	column Court
+		dataType: string
+		lineageTag: 642c131c-143f-58dd-a6f0-3f73ad1804ee
+		summarizeBy: none
+		sourceColumn: [Court]
+		sortByColumn: Mois
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Mois = calculated
+		mode: import
+		source =
+				DATATABLE ( "Mois", INTEGER, "NomMois", STRING, "Abrege", STRING, "Court", STRING, {
+				    { 1, "janvier", "janv.", "jan" }, { 2, "février", "févr.", "fév" }, { 3, "mars", "mars", "mar" },
+				    { 4, "avril", "avr.", "avr" }, { 5, "mai", "mai", "mai" }, { 6, "juin", "juin", "jun" },
+				    { 7, "juillet", "juil.", "jul" }, { 8, "août", "août", "aoû" }, { 9, "septembre", "sept.", "sep" },
+				    { 10, "octobre", "oct.", "oct" }, { 11, "novembre", "nov.", "nov" }, { 12, "décembre", "déc.", "déc" } } )
+
+	annotation PBI_Id = D_Mois

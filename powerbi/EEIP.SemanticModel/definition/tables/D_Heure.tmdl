@@ -1,0 +1,28 @@
+/// Les 24 heures de la journée, en heure locale.
+table D_Heure
+	lineageTag: a749bc93-d6b2-57fe-b390-d28f3da9a5fd
+
+	column Heure
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d812347-f926-57c6-b62d-81029c44da16
+		summarizeBy: none
+		sourceColumn: [Heure]
+
+		annotation SummarizationSetBy = Automatic
+
+	column HeureLibelle
+		dataType: string
+		lineageTag: 722a1c9f-4860-5042-8834-05e08f0bf9ae
+		summarizeBy: none
+		sourceColumn: [HeureLibelle]
+		sortByColumn: Heure
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Heure = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS ( GENERATESERIES ( 0, 23, 1 ), "Heure", [Value], "HeureLibelle", FORMAT ( [Value], "00" ) & " h" )
+
+	annotation PBI_Id = D_Heure

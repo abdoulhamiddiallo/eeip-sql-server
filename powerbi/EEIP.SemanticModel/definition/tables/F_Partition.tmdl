@@ -1,0 +1,77 @@
+/// Les partitions mensuelles non vides de core.Mesure.
+table F_Partition
+	lineageTag: 408e57b6-ca49-5bb5-bff7-c8b2557d4530
+
+	column NumeroPartition
+		dataType: int64
+		formatString: 0
+		lineageTag: be51ca2d-3c71-5857-af32-6fab31230b7c
+		summarizeBy: none
+		sourceColumn: NumeroPartition
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupeDeFichiers
+		dataType: string
+		lineageTag: e557ad0e-1d14-5201-8207-a922143ee4b5
+		summarizeBy: none
+		sourceColumn: GroupeDeFichiers
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebutMois
+		dataType: dateTime
+		formatString: MMM yyyy
+		lineageTag: 673f281a-121d-5d05-8833-cf65811fd681
+		summarizeBy: none
+		sourceColumn: DebutMois
+
+		annotation SummarizationSetBy = Automatic
+
+	column Annee
+		dataType: int64
+		formatString: 0
+		lineageTag: c6500e4c-99de-5d47-bff8-bd8998f2ad98
+		summarizeBy: none
+		sourceColumn: Annee
+
+		annotation SummarizationSetBy = Automatic
+
+	column Compression
+		dataType: string
+		lineageTag: a5ee4f0f-cf5d-5d4c-bc56-7943458f0474
+		summarizeBy: none
+		sourceColumn: Compression
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lignes
+		dataType: int64
+		formatString: #,0
+		lineageTag: b33af9ed-c10c-5446-94f2-1fe66ccd3f0c
+		summarizeBy: none
+		sourceColumn: Lignes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mo
+		dataType: double
+		formatString: #,0.0
+		lineageTag: ae8c301f-5644-570c-9971-c44180905f9c
+		summarizeBy: none
+		sourceColumn: Mo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Partition = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Partition"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"NumeroPartition", "GroupeDeFichiers", "DebutMois", "Annee", "Compression", "Lignes", "Mo"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"NumeroPartition", Int64.Type}, {"GroupeDeFichiers", type text}, {"DebutMois", type date}, {"Annee", Int64.Type}, {"Compression", type text}, {"Lignes", Int64.Type}, {"Mo", type number}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

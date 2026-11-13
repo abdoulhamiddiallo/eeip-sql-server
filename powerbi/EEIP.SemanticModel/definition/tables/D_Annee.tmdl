@@ -1,0 +1,19 @@
+/// Les années du panel Eurostat.
+table D_Annee
+	lineageTag: 9a4d6e5f-fad2-5629-b916-63a65a51a8b2
+
+	column Annee
+		dataType: int64
+		formatString: 0
+		lineageTag: 05858eeb-5330-546b-9de7-0f6b6c076cdb
+		summarizeBy: none
+		sourceColumn: [Annee]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Annee = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS ( GENERATESERIES ( 1990, YEAR ( TODAY () ), 1 ), "Annee", [Value] )
+
+	annotation PBI_Id = D_Annee

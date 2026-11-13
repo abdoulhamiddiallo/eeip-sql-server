@@ -1,0 +1,122 @@
+/// Calendrier en heure locale, depuis le 1er janvier 2023.
+table D_Jour
+	lineageTag: 8fbd76d9-2a4e-5cd6-a8e9-b7cb8f27e93c
+
+	column Jour
+		dataType: dateTime
+		formatString: dd/MM/yyyy
+		lineageTag: d32e1c97-4d48-5eba-8684-bb6a463779cf
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Annee
+		dataType: int64
+		formatString: 0
+		lineageTag: 73acba7b-734d-55e0-acf5-3e6bc0e70e25
+		summarizeBy: none
+		sourceColumn: Annee
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: f727a45a-d497-5036-9c62-f4a1f16a836d
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mois
+		dataType: int64
+		formatString: 0
+		lineageTag: b08665ef-bf2f-58ad-a00e-15af5f412e5a
+		summarizeBy: none
+		sourceColumn: Mois
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomMois
+		dataType: string
+		lineageTag: 09ca97c6-a291-5d25-8b73-56f5a2c5224b
+		summarizeBy: none
+		sourceColumn: NomMois
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnneeMois
+		dataType: string
+		lineageTag: 195d2da8-7445-520f-9583-363accab6e4b
+		summarizeBy: none
+		sourceColumn: AnneeMois
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebutMois
+		dataType: dateTime
+		formatString: MMM yyyy
+		lineageTag: 5a438eb5-7646-5af7-a6ea-d39042acaa85
+		summarizeBy: none
+		sourceColumn: DebutMois
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebutSemaine
+		dataType: dateTime
+		formatString: dd/MM/yyyy
+		lineageTag: b07a3cf5-ed5f-55c4-ad94-1075ee2abe69
+		summarizeBy: none
+		sourceColumn: DebutSemaine
+
+		annotation SummarizationSetBy = Automatic
+
+	column JourSemaine
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ee3980c9-46ee-5c62-882d-78988c753603
+		summarizeBy: none
+		sourceColumn: JourSemaine
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomJour
+		dataType: string
+		lineageTag: d16d80b2-d904-5766-a2e3-4b543b674c90
+		summarizeBy: none
+		sourceColumn: NomJour
+		sortByColumn: JourSemaine
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstOuvre
+		dataType: int64
+		formatString: 0
+		lineageTag: 32825c2b-4af6-55ed-bc7a-ea80c321fb9e
+		summarizeBy: none
+		sourceColumn: EstOuvre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Saison
+		dataType: string
+		lineageTag: a8378450-ed5e-51a4-9e8e-0ea66945bab4
+		summarizeBy: none
+		sourceColumn: Saison
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Jour = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Jour"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Jour", "Annee", "Trimestre", "Mois", "NomMois", "AnneeMois", "DebutMois", "DebutSemaine", "JourSemaine", "NomJour", "EstOuvre", "Saison"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Jour", type date}, {"Annee", Int64.Type}, {"Trimestre", Int64.Type}, {"Mois", Int64.Type}, {"NomMois", type text}, {"AnneeMois", type text}, {"DebutMois", type date}, {"DebutSemaine", type date}, {"JourSemaine", Int64.Type}, {"NomJour", type text}, {"EstOuvre", Int64.Type}, {"Saison", type text}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

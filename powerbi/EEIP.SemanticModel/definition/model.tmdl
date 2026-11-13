@@ -1,0 +1,38 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["D_Zone", "D_Voisin", "D_Famille", "D_Source", "D_Jour", "F_Mix", "F_Conso", "F_Prix", "F_Echange", "F_Carbone", "F_Profil", "F_Panel", "F_Revision", "F_Lot", "F_Volume", "F_Qualite", "F_Partition", "Serveur", "Base"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table D_Zone
+ref table D_Voisin
+ref table D_Famille
+ref table D_Source
+ref table D_Jour
+ref table F_Mix
+ref table F_Conso
+ref table F_Prix
+ref table F_Echange
+ref table F_Carbone
+ref table F_Profil
+ref table F_Panel
+ref table F_Revision
+ref table F_Lot
+ref table F_Volume
+ref table F_Qualite
+ref table F_Partition
+ref table D_Heure
+ref table D_Mois
+ref table D_Annee
+ref table 'Choix Année'
+ref table 'Choix Année Europe'
+ref table Metrics

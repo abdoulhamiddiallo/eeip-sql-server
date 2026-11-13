@@ -1,0 +1,71 @@
+/// CO2 estimé par le mix et les facteurs d'émission, face à la mesure publiée par RTE.
+table F_Carbone
+	lineageTag: b614f2e8-aa4d-5ad5-b4f5-70f8c0df0dbf
+
+	column Zone
+		dataType: string
+		isHidden
+		lineageTag: 51307bba-cd40-5714-9c6a-8ed53e5e7e25
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		dataType: dateTime
+		isHidden
+		formatString: dd/MM/yyyy
+		lineageTag: c01b9b58-93bf-5a84-9582-80b54b0d0d9f
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductionMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: fa3e099d-80e2-5e05-a4de-64e196c0b649
+		summarizeBy: none
+		sourceColumn: ProductionMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmissionsT
+		dataType: double
+		formatString: #,0
+		lineageTag: 78dbdcb8-0612-5d11-9036-80c8737f35db
+		summarizeBy: none
+		sourceColumn: EmissionsT
+
+		annotation SummarizationSetBy = Automatic
+
+	column IntensiteEstimee
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 1e43f071-0b2a-52d8-9eed-11405d25b1fc
+		summarizeBy: none
+		sourceColumn: IntensiteEstimee
+
+		annotation SummarizationSetBy = Automatic
+
+	column IntensiteMesuree
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 0cad470c-fe63-5af6-9e44-c4917b0eed03
+		summarizeBy: none
+		sourceColumn: IntensiteMesuree
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Carbone = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "CarboneJour"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "Jour", "ProductionMWh", "EmissionsT", "IntensiteEstimee", "IntensiteMesuree"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"Jour", type date}, {"ProductionMWh", type number}, {"EmissionsT", type number}, {"IntensiteEstimee", type number}, {"IntensiteMesuree", type number}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

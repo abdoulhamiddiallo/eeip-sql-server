@@ -1,0 +1,42 @@
+/// Anomalies écartées par les contrôles qualité.
+table F_Qualite
+	lineageTag: 2811fe03-9a4d-5b04-bb6d-e016ce07dd0d
+
+	column TypeAnomalie
+		dataType: string
+		lineageTag: f40cf9d1-be85-54f6-b46f-bac74615ecdc
+		summarizeBy: none
+		sourceColumn: TypeAnomalie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		dataType: dateTime
+		formatString: dd/MM/yyyy
+		lineageTag: fe36b867-1229-5811-8826-2e9781c83d8a
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		dataType: int64
+		formatString: 0
+		lineageTag: d418c306-1105-5501-b2fd-fc369250279c
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Qualite = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Qualite"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"TypeAnomalie", "Jour", "Nombre"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"TypeAnomalie", type text}, {"Jour", type date}, {"Nombre", Int64.Type}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,19 @@
+/// Table déconnectée pour la page Europe (Eurostat, depuis 1990).
+table 'Choix Année Europe'
+	lineageTag: adb0d7f8-5934-51e0-b1d3-5e1016de9eab
+
+	column 'Année'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d7e3aa8-d2b2-5e0d-9137-8513b5981930
+		summarizeBy: none
+		sourceColumn: [Année]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Choix Année Europe' = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS ( GENERATESERIES ( 1990, YEAR ( TODAY () ), 1 ), "Année", [Value] )
+
+	annotation PBI_Id = ChoixAnnéeEurope

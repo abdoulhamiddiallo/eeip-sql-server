@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" font-family="Inter, sans-serif">
+<defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0E9F8E"/></marker></defs>
+<rect width="1000" height="470" fill="#F7FAF9"/>
+<text x="30" y="38" font-size="20" font-weight="700" fill="#0A2324">De SQL Server au rapport Power BI</text>
+<text x="30" y="60" font-size="12.5" fill="#5B6B82">Le rapport ne lit qu'un schéma, bi : les tables internes peuvent évoluer sans jamais casser le modèle</text>
+<rect x="30" y="88" width="214" height="282" rx="12" fill="#0A2324"/>
+<text x="46" y="116" font-size="14.5" font-weight="700" fill="#fff">Base EEIP</text>
+<text x="46" y="146" font-size="12" fill="#B9DDD7" xml:space="preserve">core · 24,8 M de mesures</text>
+<text x="46" y="169" font-size="12" fill="#B9DDD7" xml:space="preserve">   temporelles, 148 partitions</text>
+<text x="46" y="192" font-size="12" fill="#B9DDD7" xml:space="preserve">mart · jours locaux, panel</text>
+<text x="46" y="215" font-size="12" fill="#B9DDD7" xml:space="preserve">   pays × année (Eurostat)</text>
+<text x="46" y="238" font-size="12" fill="#B9DDD7" xml:space="preserve">ops · lots, journal, filigranes</text>
+<text x="46" y="261" font-size="12" fill="#B9DDD7" xml:space="preserve">dq · contrôles de qualité</text>
+<text x="46" y="284" font-size="12" fill="#B9DDD7" xml:space="preserve">cfg · 111 requêtes</text>
+<text x="46" y="307" font-size="12" fill="#B9DDD7" xml:space="preserve"></text>
+<text x="46" y="338" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#B9DDD7" opacity="0.85" xml:space="preserve">scripts 00 à 15</text>
+<line x1="247" y1="229" x2="269" y2="229" stroke="#0E9F8E" stroke-width="2" marker-end="url(#f)"/>
+<rect x="272" y="88" width="214" height="282" rx="12" fill="#0E9F8E"/>
+<text x="288" y="116" font-size="14.5" font-weight="700" fill="#fff">Schéma bi</text>
+<text x="288" y="146" font-size="12" fill="#E6FFFB" xml:space="preserve">11 vues : dimensions</text>
+<text x="288" y="169" font-size="12" fill="#E6FFFB" xml:space="preserve">   et faits légers, en direct</text>
+<text x="288" y="192" font-size="12" fill="#E6FFFB" xml:space="preserve">6 tables matérialisées</text>
+<text x="288" y="215" font-size="12" fill="#E6FFFB" xml:space="preserve">   mix, conso, prix, échanges,</text>
+<text x="288" y="238" font-size="12" fill="#E6FFFB" xml:space="preserve">   carbone, profil horaire</text>
+<text x="288" y="261" font-size="12" fill="#E6FFFB" xml:space="preserve">bi.usp_Rafraichir incrémental</text>
+<text x="288" y="284" font-size="12" fill="#E6FFFB" xml:space="preserve">   étape 2 du travail horaire</text>
+<text x="288" y="307" font-size="12" fill="#E6FFFB" xml:space="preserve">GRANT SELECT à eeip_lecteur</text>
+<text x="288" y="338" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#E6FFFB" opacity="0.85" xml:space="preserve">script 16_couche_powerbi.sql</text>
+<line x1="489" y1="229" x2="511" y2="229" stroke="#0E9F8E" stroke-width="2" marker-end="url(#f)"/>
+<rect x="514" y="88" width="214" height="282" rx="12" fill="#7A4FB3"/>
+<text x="530" y="116" font-size="14.5" font-weight="700" fill="#fff">Modèle sémantique</text>
+<text x="530" y="146" font-size="12" fill="#F1EBFF" xml:space="preserve">mode Import, culture fr-FR</text>
+<text x="530" y="169" font-size="12" fill="#F1EBFF" xml:space="preserve">Sql.Database(Serveur, Base)</text>
+<text x="530" y="192" font-size="12" fill="#F1EBFF" xml:space="preserve">   deux paramètres</text>
+<text x="530" y="215" font-size="12" fill="#F1EBFF" xml:space="preserve">23 tables · 20 relations</text>
+<text x="530" y="238" font-size="12" fill="#F1EBFF" xml:space="preserve">261 mesures DAX</text>
+<text x="530" y="261" font-size="12" fill="#F1EBFF" xml:space="preserve">   en 9 dossiers</text>
+<text x="530" y="284" font-size="12" fill="#F1EBFF" xml:space="preserve">8 dimensions, 12 faits</text>
+<text x="530" y="307" font-size="12" fill="#F1EBFF" xml:space="preserve">format TMDL, versionné</text>
+<text x="530" y="338" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#F1EBFF" opacity="0.85" xml:space="preserve">EEIP.SemanticModel</text>
+<line x1="731" y1="229" x2="753" y2="229" stroke="#0E9F8E" stroke-width="2" marker-end="url(#f)"/>
+<rect x="756" y="88" width="214" height="282" rx="12" fill="#E4572E"/>
+<text x="772" y="116" font-size="14.5" font-weight="700" fill="#fff">Rapport Power BI</text>
+<text x="772" y="146" font-size="12" fill="#FFEDE6" xml:space="preserve">1 · Le système électrique</text>
+<text x="772" y="169" font-size="12" fill="#FFEDE6" xml:space="preserve">2 · La journée type</text>
+<text x="772" y="192" font-size="12" fill="#FFEDE6" xml:space="preserve">3 · Les prix de gros</text>
+<text x="772" y="215" font-size="12" fill="#FFEDE6" xml:space="preserve">4 · Les échanges</text>
+<text x="772" y="238" font-size="12" fill="#FFEDE6" xml:space="preserve">5 · Le carbone</text>
+<text x="772" y="261" font-size="12" fill="#FFEDE6" xml:space="preserve">6 · Les régions françaises</text>
+<text x="772" y="284" font-size="12" fill="#FFEDE6" xml:space="preserve">7 · L'Europe depuis 1990</text>
+<text x="772" y="307" font-size="12" fill="#FFEDE6" xml:space="preserve">8 · La plateforme</text>
+<text x="772" y="338" font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#FFEDE6" opacity="0.85" xml:space="preserve">format PBIR · EEIP.Report</text>
+<rect x="30" y="392" width="940" height="58" rx="10" fill="#fff" stroke="#C9D8D4"/>
+<text x="46" y="415" font-size="12" font-weight="700" fill="#0A2324">CHAQUE HEURE, SANS INTERVENTION</text>
+<text x="46" y="437" font-size="11.5" fill="#14302F"><tspan font-weight="700" fill="#0A2324">à :20</tspan>  Agent : EEIP · Temps réel</text>
+<text x="268" y="437" font-size="12" fill="#5B6B82">→</text>
+<text x="290" y="437" font-size="11.5" fill="#14302F"><tspan font-weight="700" fill="#0E9F8E">étape 1</tspan>  RTE, éCO2mix, ENTSO-E</text>
+<text x="518" y="437" font-size="12" fill="#5B6B82">→</text>
+<text x="540" y="437" font-size="11.5" fill="#14302F"><tspan font-weight="700" fill="#0E9F8E">étape 2</tspan>  bi.usp_Rafraichir</text>
+<text x="738" y="437" font-size="12" fill="#5B6B82">→</text>
+<text x="760" y="437" font-size="11.5" fill="#14302F"><tspan font-weight="700" fill="#E4572E">Power BI</tspan>  Actualiser : tout est à jour</text>
+</svg>

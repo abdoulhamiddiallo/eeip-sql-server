@@ -1,0 +1,11 @@
+# Configuration locale : contient le jeton ENTSO-E et les identifiants RTE
+config/eeip.ini
+# Environnement Python et journaux
+.venv/
+__pycache__/
+logs/
+*.log
+
+# Power BI : cache et réglages locaux
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

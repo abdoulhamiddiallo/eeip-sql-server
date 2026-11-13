@@ -1,0 +1,157 @@
+/// Le journal des chargements.
+table F_Lot
+	lineageTag: 1ee0b4f4-e1cf-53b1-bba0-468109dffda5
+
+	column LotId
+		dataType: int64
+		formatString: 0
+		lineageTag: 132a1456-a067-581f-abef-0914352a2c61
+		summarizeBy: none
+		sourceColumn: LotId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Declencheur
+		dataType: string
+		lineageTag: 25e36649-22cd-5e61-bcda-1eb64246532c
+		summarizeBy: none
+		sourceColumn: Declencheur
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sources
+		dataType: string
+		lineageTag: 0ec43a64-c1ec-54ad-a49c-fdcc45e463a1
+		summarizeBy: none
+		sourceColumn: Sources
+
+		annotation SummarizationSetBy = Automatic
+
+	column Statut
+		dataType: string
+		lineageTag: 845222e1-60f3-5039-adb5-d3f31734c277
+		summarizeBy: none
+		sourceColumn: Statut
+
+		annotation SummarizationSetBy = Automatic
+
+	column Debut
+		dataType: dateTime
+		formatString: dd/MM/yyyy HH:mm
+		lineageTag: cb543fca-598a-5c52-94c7-dd8383a37e11
+		summarizeBy: none
+		sourceColumn: Debut
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fin
+		dataType: dateTime
+		formatString: dd/MM/yyyy HH:mm
+		lineageTag: 3d794647-e421-5697-ac70-e1bd538fabe6
+		summarizeBy: none
+		sourceColumn: Fin
+
+		annotation SummarizationSetBy = Automatic
+
+	column JourLot
+		dataType: dateTime
+		formatString: dd/MM/yyyy
+		lineageTag: 98791211-b290-5427-a1a3-a21593c3e754
+		summarizeBy: none
+		sourceColumn: JourLot
+
+		annotation SummarizationSetBy = Automatic
+
+	column DureeMinutes
+		dataType: double
+		formatString: #,0.0
+		lineageTag: a0a21e5c-2be0-50fc-9bb9-44dd46e9382d
+		summarizeBy: none
+		sourceColumn: DureeMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbAppels
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4e56b7a4-7e65-5660-bdee-369afcd66f3c
+		summarizeBy: none
+		sourceColumn: NbAppels
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbReponsesIdentiques
+		dataType: int64
+		formatString: #,0
+		lineageTag: a432e6a5-40a8-59cb-b5c5-c93f594dc477
+		summarizeBy: none
+		sourceColumn: NbReponsesIdentiques
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbLignesLues
+		dataType: int64
+		formatString: #,0
+		lineageTag: cda4e04f-ac97-5e6a-a244-723b30a75ab8
+		summarizeBy: none
+		sourceColumn: NbLignesLues
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbInserees
+		dataType: int64
+		formatString: #,0
+		lineageTag: b3da8ee8-1abe-58d8-9ddf-9c41523f566a
+		summarizeBy: none
+		sourceColumn: NbInserees
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbRevisees
+		dataType: int64
+		formatString: #,0
+		lineageTag: 36a8094d-5682-5315-8a4e-cb9bfa0df5cf
+		summarizeBy: none
+		sourceColumn: NbRevisees
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbInchangees
+		dataType: int64
+		formatString: #,0
+		lineageTag: 91b41d20-6516-5dd5-99c2-ea6764fb18cd
+		summarizeBy: none
+		sourceColumn: NbInchangees
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbRejetees
+		dataType: int64
+		formatString: #,0
+		lineageTag: 021e53ed-1081-5ba2-a1a8-11d435a67113
+		summarizeBy: none
+		sourceColumn: NbRejetees
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbAnomalies
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1beb41b3-8d9b-5ceb-8964-0517cbcdeba0
+		summarizeBy: none
+		sourceColumn: NbAnomalies
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Lot = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Lot"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"LotId", "Declencheur", "Sources", "Statut", "Debut", "Fin", "JourLot", "DureeMinutes", "NbAppels", "NbReponsesIdentiques", "NbLignesLues", "NbInserees", "NbRevisees", "NbInchangees", "NbRejetees", "NbAnomalies"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"LotId", Int64.Type}, {"Declencheur", type text}, {"Sources", type text}, {"Statut", type text}, {"Debut", type datetime}, {"Fin", type datetime}, {"JourLot", type date}, {"DureeMinutes", type number}, {"NbAppels", Int64.Type}, {"NbReponsesIdentiques", Int64.Type}, {"NbLignesLues", Int64.Type}, {"NbInserees", Int64.Type}, {"NbRevisees", Int64.Type}, {"NbInchangees", Int64.Type}, {"NbRejetees", Int64.Type}, {"NbAnomalies", Int64.Type}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

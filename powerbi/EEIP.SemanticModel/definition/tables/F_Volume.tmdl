@@ -1,0 +1,95 @@
+/// Séries et valeurs stockées, par source et par indicateur.
+table F_Volume
+	lineageTag: d5aa0d89-e4c6-56bb-9728-59e7c18c3438
+
+	column Source
+		dataType: string
+		isHidden
+		lineageTag: 56becc5d-d043-5254-b761-da70e6c5de34
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indicateur
+		dataType: string
+		lineageTag: e4359c9a-a1a3-50fe-a7ea-6024e008ab8d
+		summarizeBy: none
+		sourceColumn: Indicateur
+
+		annotation SummarizationSetBy = Automatic
+
+	column Theme
+		dataType: string
+		lineageTag: 77352f1e-89ce-5395-8840-5d17e3f023ed
+		summarizeBy: none
+		sourceColumn: Theme
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zones
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ac48923-8a40-54a6-b996-1253590f05fe
+		summarizeBy: none
+		sourceColumn: Zones
+
+		annotation SummarizationSetBy = Automatic
+
+	column Series
+		dataType: int64
+		formatString: #,0
+		lineageTag: 125eba7c-f680-521c-924f-d0f4cb2ab0e9
+		summarizeBy: none
+		sourceColumn: Series
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valeurs
+		dataType: int64
+		formatString: #,0
+		lineageTag: ffc72788-5e13-56fd-80fe-95a7008b7415
+		summarizeBy: none
+		sourceColumn: Valeurs
+
+		annotation SummarizationSetBy = Automatic
+
+	column Premier
+		dataType: dateTime
+		formatString: dd/MM/yyyy HH:mm
+		lineageTag: afd656a4-0db5-5e3b-8db1-0e06798698bd
+		summarizeBy: none
+		sourceColumn: Premier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dernier
+		dataType: dateTime
+		formatString: dd/MM/yyyy HH:mm
+		lineageTag: 108fdc69-316a-5134-afe4-a7a8adeec0d7
+		summarizeBy: none
+		sourceColumn: Dernier
+
+		annotation SummarizationSetBy = Automatic
+
+	column PasMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 40aae1db-5297-5020-bab2-d2b04b24f0e0
+		summarizeBy: none
+		sourceColumn: PasMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Volume = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Volume"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Source", "Indicateur", "Theme", "Zones", "Series", "Valeurs", "Premier", "Dernier", "PasMinutes"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Source", type text}, {"Indicateur", type text}, {"Theme", type text}, {"Zones", Int64.Type}, {"Series", Int64.Type}, {"Valeurs", Int64.Type}, {"Premier", type datetime}, {"Dernier", type datetime}, {"PasMinutes", Int64.Type}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,19 @@
+/// Table déconnectée : le segment d'année pilote les KPI sans filtrer les courbes.
+table 'Choix Année'
+	lineageTag: 48edd8d9-d913-5a20-a986-080c7be85561
+
+	column 'Année'
+		dataType: int64
+		formatString: 0
+		lineageTag: 12dd77ba-1628-504c-bcaf-92f066bd22a4
+		summarizeBy: none
+		sourceColumn: [Année]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Choix Année' = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS ( GENERATESERIES ( 2023, YEAR ( TODAY () ), 1 ), "Année", [Value] )
+
+	annotation PBI_Id = ChoixAnnée

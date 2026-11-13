@@ -1,0 +1,58 @@
+/// Les quatre producteurs de données et leur rang dans le golden record.
+table D_Source
+	lineageTag: f664cc73-190a-5efa-96f6-d0fa261e80d8
+
+	column Source
+		dataType: string
+		lineageTag: 808a1a3a-f47a-589b-b0e5-6e0e893ea1a9
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceNom
+		dataType: string
+		lineageTag: 688b0661-67e8-5a2b-b1c6-0cc4133add70
+		summarizeBy: none
+		sourceColumn: SourceNom
+
+		annotation SummarizationSetBy = Automatic
+
+	column Licence
+		dataType: string
+		lineageTag: f41afb6f-f314-5ad4-99b6-8b2da50f8d0d
+		summarizeBy: none
+		sourceColumn: Licence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Priorite
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ccd2d02-6116-525b-8a7a-581a83a8edcd
+		summarizeBy: none
+		sourceColumn: Priorite
+
+		annotation SummarizationSetBy = Automatic
+
+	column Couleur
+		dataType: string
+		isHidden
+		lineageTag: b715b48c-05dd-5542-925c-96779cc4a734
+		summarizeBy: none
+		sourceColumn: Couleur
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Source = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Source"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Source", "SourceNom", "Licence", "Priorite", "Couleur"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Source", type text}, {"SourceNom", type text}, {"Licence", type text}, {"Priorite", Int64.Type}, {"Couleur", type text}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

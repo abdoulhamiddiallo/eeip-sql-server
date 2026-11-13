@@ -1,0 +1,88 @@
+/// Familles de production, avec leur couleur fixe et leur facteur d'émission (g CO2 par kWh).
+table D_Famille
+	lineageTag: fa499fa3-be42-581a-aa43-f6acd88a902e
+
+	column Famille
+		dataType: string
+		lineageTag: 820acd06-b1b8-560f-9c7d-2952d13e68f2
+		summarizeBy: none
+		sourceColumn: Famille
+
+		annotation SummarizationSetBy = Automatic
+
+	column FamilleLibelle
+		dataType: string
+		lineageTag: 445daaf4-fc6a-556e-a55f-0481db962277
+		summarizeBy: none
+		sourceColumn: FamilleLibelle
+		sortByColumn: Ordre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Couleur
+		dataType: string
+		isHidden
+		lineageTag: e949759a-c09c-5bd3-8f8d-ea22f1922268
+		summarizeBy: none
+		sourceColumn: Couleur
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2d43551b-a2c4-50bc-afc5-2e6c49e5f643
+		summarizeBy: none
+		sourceColumn: Ordre
+
+		annotation SummarizationSetBy = Automatic
+
+	column BasCarbone
+		dataType: int64
+		formatString: 0
+		lineageTag: f3564379-3483-53b2-a58d-adb52c69e1ee
+		summarizeBy: none
+		sourceColumn: BasCarbone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Renouvelable
+		dataType: int64
+		formatString: 0
+		lineageTag: ddf012f3-f535-5bae-8adc-fe9de016217f
+		summarizeBy: none
+		sourceColumn: Renouvelable
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fossile
+		dataType: int64
+		formatString: 0
+		lineageTag: 39bf4b58-f597-597f-b819-18041d62c79b
+		summarizeBy: none
+		sourceColumn: Fossile
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacteurCO2
+		dataType: double
+		formatString: #,0
+		lineageTag: 0ee08588-9906-5b78-a8fa-47108015df1d
+		summarizeBy: none
+		sourceColumn: FacteurCO2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Famille = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Famille"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Famille", "FamilleLibelle", "Couleur", "Ordre", "BasCarbone", "Renouvelable", "Fossile", "FacteurCO2"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Famille", type text}, {"FamilleLibelle", type text}, {"Couleur", type text}, {"Ordre", Int64.Type}, {"BasCarbone", Int64.Type}, {"Renouvelable", Int64.Type}, {"Fossile", Int64.Type}, {"FacteurCO2", type number}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

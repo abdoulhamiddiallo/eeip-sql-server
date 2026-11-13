@@ -1,0 +1,418 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU08",
+      "reportVersionAtImport": {
+        "visual": "2.12.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "ThemeEEIP.json",
+      "reportVersionAtImport": {
+        "visual": "2.12.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU08",
+          "path": "BaseThemes/Fluent2-CY26SU08.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "bg.png",
+          "path": "bg.png",
+          "type": "Image"
+        },
+        {
+          "name": "carte_europe_p3.png",
+          "path": "carte_europe_p3.png",
+          "type": "Image"
+        },
+        {
+          "name": "carte_europe_p4.png",
+          "path": "carte_europe_p4.png",
+          "type": "Image"
+        },
+        {
+          "name": "carte_regions_p6.png",
+          "path": "carte_regions_p6.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_clock_off.png",
+          "path": "ic_clock_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_clock_on.png",
+          "path": "ic_clock_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_db_off.png",
+          "path": "ic_db_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_db_on.png",
+          "path": "ic_db_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_euro_off.png",
+          "path": "ic_euro_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_euro_on.png",
+          "path": "ic_euro_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_europe_off.png",
+          "path": "ic_europe_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_europe_on.png",
+          "path": "ic_europe_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_hexagone_off.png",
+          "path": "ic_hexagone_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_hexagone_on.png",
+          "path": "ic_hexagone_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_leaf_off.png",
+          "path": "ic_leaf_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_leaf_on.png",
+          "path": "ic_leaf_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_pylon_off.png",
+          "path": "ic_pylon_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_pylon_on.png",
+          "path": "ic_pylon_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_swap_off.png",
+          "path": "ic_swap_off.png",
+          "type": "Image"
+        },
+        {
+          "name": "ic_swap_on.png",
+          "path": "ic_swap_on.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_alert.png",
+          "path": "ki_alert.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_below.png",
+          "path": "ki_below.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_bolt.png",
+          "path": "ki_bolt.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_calendar.png",
+          "path": "ki_calendar.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_clock.png",
+          "path": "ki_clock.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_cloud.png",
+          "path": "ki_cloud.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_db.png",
+          "path": "ki_db.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_euro.png",
+          "path": "ki_euro.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_europe.png",
+          "path": "ki_europe.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_factory.png",
+          "path": "ki_factory.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_flame.png",
+          "path": "ki_flame.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_gauge.png",
+          "path": "ki_gauge.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_hexagone.png",
+          "path": "ki_hexagone.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_history.png",
+          "path": "ki_history.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_layers.png",
+          "path": "ki_layers.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_leaf.png",
+          "path": "ki_leaf.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_map.png",
+          "path": "ki_map.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_peak.png",
+          "path": "ki_peak.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_pin.png",
+          "path": "ki_pin.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_plug.png",
+          "path": "ki_plug.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_pulse.png",
+          "path": "ki_pulse.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_pylon.png",
+          "path": "ki_pylon.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_rank.png",
+          "path": "ki_rank.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_sine.png",
+          "path": "ki_sine.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_sun.png",
+          "path": "ki_sun.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_swap.png",
+          "path": "ki_swap.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_target.png",
+          "path": "ki_target.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_trend.png",
+          "path": "ki_trend.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_trophy.png",
+          "path": "ki_trophy.png",
+          "type": "Image"
+        },
+        {
+          "name": "ki_valley.png",
+          "path": "ki_valley.png",
+          "type": "Image"
+        },
+        {
+          "name": "leg_bandes.png",
+          "path": "leg_bandes.png",
+          "type": "Image"
+        },
+        {
+          "name": "leg_couverture.png",
+          "path": "leg_couverture.png",
+          "type": "Image"
+        },
+        {
+          "name": "leg_prix.png",
+          "path": "leg_prix.png",
+          "type": "Image"
+        },
+        {
+          "name": "leg_prix_horaire.png",
+          "path": "leg_prix_horaire.png",
+          "type": "Image"
+        },
+        {
+          "name": "leg_voisins.png",
+          "path": "leg_voisins.png",
+          "type": "Image"
+        },
+        {
+          "name": "mark.png",
+          "path": "mark.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_19d3c5.png",
+          "path": "px_acc_19d3c5.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_4ade80.png",
+          "path": "px_acc_4ade80.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_5aa9ff.png",
+          "path": "px_acc_5aa9ff.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_b794f6.png",
+          "path": "px_acc_b794f6.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_f7c948.png",
+          "path": "px_acc_f7c948.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_ff6b5b.png",
+          "path": "px_acc_ff6b5b.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_acc_ff9f43.png",
+          "path": "px_acc_ff9f43.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_panel.png",
+          "path": "px_panel.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_rail.png",
+          "path": "px_rail.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_railon.png",
+          "path": "px_railon.png",
+          "type": "Image"
+        },
+        {
+          "name": "px_tile.png",
+          "path": "px_tile.png",
+          "type": "Image"
+        },
+        {
+          "name": "ThemeEEIP.json",
+          "path": "ThemeEEIP.json",
+          "type": "CustomTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

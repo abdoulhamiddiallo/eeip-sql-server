@@ -1,0 +1,139 @@
+{
+  "name": "EEIP",
+  "dataColors": [
+    "#19D3C5",
+    "#F7C948",
+    "#FF6B5B",
+    "#5AA9FF",
+    "#B794F6",
+    "#4ADE80",
+    "#8FE9DF",
+    "#FBE3A0",
+    "#FFB1A8",
+    "#B8DCFF"
+  ],
+  "background": "#051316",
+  "foreground": "#FFFFFF",
+  "tableAccent": "#19D3C5",
+  "good": "#4ADE80",
+  "neutral": "#F7C948",
+  "bad": "#FF6B5B",
+  "maximum": "#FF6B5B",
+  "center": "#F7C948",
+  "minimum": "#19D3C5",
+  "textClasses": {
+    "title": {
+      "fontFace": "'DIN', wf_standard-font, helvetica, arial, sans-serif",
+      "fontSize": 16,
+      "color": "#FFFFFF"
+    },
+    "header": {
+      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
+      "fontSize": 13,
+      "color": "#FFFFFF"
+    },
+    "label": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+      "fontSize": 12,
+      "color": "#CFE3E1"
+    },
+    "callout": {
+      "fontFace": "'DIN', wf_standard-font, helvetica, arial, sans-serif",
+      "fontSize": 36,
+      "color": "#FFFFFF"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#0A1F23"
+              }
+            },
+            "transparency": 10
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#1D4A4E"
+              }
+            },
+            "radius": 14
+          }
+        ],
+        "outspacePane": [
+          {
+            "backgroundColor": {
+              "solid": {
+                "color": "#08191C"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "borderColor": {
+              "solid": {
+                "color": "#1D4A4E"
+              }
+            }
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Applied",
+            "backgroundColor": {
+              "solid": {
+                "color": "#0A1F23"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          },
+          {
+            "$id": "Available",
+            "backgroundColor": {
+              "solid": {
+                "color": "#0A1F23"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#CFE3E1"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "items": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#0F2C30"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

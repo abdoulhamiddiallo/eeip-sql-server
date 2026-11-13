@@ -1,0 +1,134 @@
+/// Pays, zones de prix, régions françaises et agrégats européens.
+table D_Zone
+	lineageTag: f2655f97-7b8b-5997-8e00-dedd78f49c99
+
+	column Zone
+		dataType: string
+		lineageTag: e828d434-f5bf-532c-a618-2be8e08a017c
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZoneNom
+		dataType: string
+		lineageTag: f0812a5d-adc0-5185-b07c-696acc1cf458
+		summarizeBy: none
+		sourceColumn: ZoneNom
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomCourt
+		dataType: string
+		lineageTag: 2b437cd4-5f15-5102-8d6c-ebb180f5ff33
+		summarizeBy: none
+		sourceColumn: NomCourt
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypeZone
+		dataType: string
+		isHidden
+		lineageTag: 55805c38-de09-52f2-8319-e62b6b902106
+		summarizeBy: none
+		sourceColumn: TypeZone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: d01ca013-1442-59a5-96cb-6ec01da319f4
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pays
+		dataType: string
+		lineageTag: deac5c7c-e015-5e69-bd56-b183279fa818
+		summarizeBy: none
+		sourceColumn: Pays
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		formatString: 0.0000
+		dataCategory: Latitude
+		lineageTag: 9f7ecc81-2f61-510a-ba0b-dfc7fe6a8e37
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: double
+		formatString: 0.0000
+		dataCategory: Longitude
+		lineageTag: fa869e44-5b42-5f4e-8bc9-8ad94c9b8c10
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstUE
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b1825450-6678-596f-8ee4-e57e70d8f187
+		summarizeBy: none
+		sourceColumn: EstUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marche
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0a768c0d-7a45-5b1e-9241-b0c127fc5811
+		summarizeBy: none
+		sourceColumn: Marche
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prix
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dd905317-56b2-5856-a736-46334afa1488
+		summarizeBy: none
+		sourceColumn: Prix
+
+		annotation SummarizationSetBy = Automatic
+
+	column Echanges
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fb9c6e29-fa06-5237-bca7-de8d1ca1d8ee
+		summarizeBy: none
+		sourceColumn: Echanges
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZonePrix
+		dataType: string
+		isHidden
+		lineageTag: 1417fa79-d7ab-5737-ab0c-5cf732bcd662
+		summarizeBy: none
+		sourceColumn: ZonePrix
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Zone = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "vw_Zone"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "ZoneNom", "NomCourt", "TypeZone", "Type", "Pays", "Latitude", "Longitude", "EstUE", "Marche", "Prix", "Echanges", "ZonePrix"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"ZoneNom", type text}, {"NomCourt", type text}, {"TypeZone", type text}, {"Type", type text}, {"Pays", type text}, {"Latitude", type number}, {"Longitude", type number}, {"EstUE", Int64.Type}, {"Marche", Int64.Type}, {"Prix", Int64.Type}, {"Echanges", Int64.Type}, {"ZonePrix", type text}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" font-family="Inter, sans-serif">
+<defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5B6B82"/></marker></defs>
+<rect width="1000" height="380" fill="#F7FAF9"/>
+<text x="30" y="38" font-size="20" font-weight="700" fill="#0A2324">Un quart d'heure, trois vérités</text>
+<text x="30" y="60" font-size="12.5" fill="#5B6B82">Exemple illustratif (valeurs fictives) : la table temporelle garde chaque version d’un point, datée</text>
+<g font-size="12">
+ <rect x="40" y="95" width="270" height="110" rx="12" fill="#fff" stroke="#C9D8D4"/><rect x="40" y="95" width="270" height="8" rx="4" fill="#E4572E"/>
+ <text x="58" y="128" font-weight="700" fill="#0A2324">Temps réel · T</text><text x="58" y="150" fill="#5B6B82" font-size="11">éCO2mix temps réel, lot du jour même</text><text x="58" y="172" fill="#0A2324" font-size="22" font-weight="700">48 210 MW</text><text x="58" y="194" fill="#5B6B82" font-size="11">ValidFrom 14/01/2026 08:20</text>
+ <rect x="365" y="95" width="270" height="110" rx="12" fill="#fff" stroke="#C9D8D4"/><rect x="365" y="95" width="270" height="8" rx="4" fill="#F2C12E"/>
+ <text x="383" y="128" font-weight="700" fill="#0A2324">Consolidé · C</text><text x="383" y="150" fill="#5B6B82" font-size="11">éCO2mix consolidé, quelques mois plus tard</text><text x="383" y="172" fill="#0A2324" font-size="22" font-weight="700">48 655 MW</text><text x="383" y="194" fill="#5B6B82" font-size="11">ValidFrom 03/06/2026 06:41</text>
+ <rect x="690" y="95" width="270" height="110" rx="12" fill="#fff" stroke="#C9D8D4"/><rect x="690" y="95" width="270" height="8" rx="4" fill="#27AE60"/>
+ <text x="708" y="128" font-weight="700" fill="#0A2324">Définitif · D</text><text x="708" y="150" fill="#5B6B82" font-size="11">éCO2mix définitif, l'année suivante</text><text x="708" y="172" fill="#0A2324" font-size="22" font-weight="700">48 702 MW</text><text x="708" y="194" fill="#5B6B82" font-size="11">en vigueur dans core.Mesure</text>
+</g>
+<g stroke="#5B6B82" stroke-width="1.6" fill="none" marker-end="url(#f)"><path d="M310,150 L363,150"/><path d="M635,150 L688,150"/></g>
+<rect x="40" y="235" width="595" height="110" rx="12" fill="#0A2324"/>
+<text x="58" y="262" font-size="13" font-weight="700" fill="#F2C12E">core.MesureHistorique</text>
+<text x="58" y="284" font-size="11.5" fill="#D5ECE8">T : 48 210, du 14/01 08:20 au 03/06 06:41</text>
+<text x="58" y="302" font-size="11.5" fill="#D5ECE8">C : 48 655, du 03/06 06:41 au remplacement par le définitif</text>
+<text x="58" y="328" font-size="11" fill="#7FB9B0">columnstore, partitionnée comme la table courante ; rétention infinie</text>
+<g font-size="11.5" fill="#0A2324">
+ <text x="665" y="255" font-weight="700">Deux règles d'architecte</text>
+ <text x="665" y="278" fill="#5B6B82">1. on n'écrit que si la valeur a changé :</text><text x="680" y="295" fill="#5B6B82">l'historique ne contient que de vraies révisions</text>
+ <text x="665" y="318" fill="#5B6B82">2. T n'écrase jamais C ni D :</text><text x="680" y="335" fill="#5B6B82">un rejeu ancien ne dégrade jamais la donnée</text>
+</g>
+</svg>

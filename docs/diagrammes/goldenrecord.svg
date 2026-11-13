@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Inter, sans-serif">
+<defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5B6B82"/></marker></defs>
+<rect width="1000" height="520" fill="#F7FAF9"/>
+<text x="30" y="38" font-size="20" font-weight="700" fill="#0A2324">Une mesure, trois sources, une seule vérité</text>
+<text x="30" y="60" font-size="12.5" fill="#5B6B82">La consommation de la France le 10 novembre 2026, telle que la plateforme l'a reçue de chaque producteur</text>
+<rect x="30" y="86" width="250" height="62" rx="10" fill="#fff" stroke="#C9D8D4"/><rect x="30" y="86" width="6" height="62" rx="3" fill="#0E9F8E"/>
+<text x="48" y="111" font-size="13.5" font-weight="700" fill="#0A2324">RTE</text><text x="48" y="132" font-size="11.5" fill="#5B6B82">priorité 1</text>
+<text x="266" y="124" text-anchor="end" font-size="15" font-weight="700" fill="#0E9F8E">53 804 MW</text>
+<path d="M282,117 C330,117 330,191 372,191" fill="none" stroke="#5B6B82" stroke-width="1.6" marker-end="url(#f)"/>
+<rect x="30" y="160" width="250" height="62" rx="10" fill="#fff" stroke="#C9D8D4"/><rect x="30" y="160" width="6" height="62" rx="3" fill="#2F7BBF"/>
+<text x="48" y="185" font-size="13.5" font-weight="700" fill="#0A2324">éCO2mix (ODRÉ)</text><text x="48" y="206" font-size="11.5" fill="#5B6B82">priorité 2</text>
+<text x="266" y="198" text-anchor="end" font-size="15" font-weight="700" fill="#2F7BBF">53 684 MW</text>
+<path d="M282,191 C330,191 330,191 372,191" fill="none" stroke="#5B6B82" stroke-width="1.6" marker-end="url(#f)"/>
+<rect x="30" y="234" width="250" height="62" rx="10" fill="#fff" stroke="#C9D8D4"/><rect x="30" y="234" width="6" height="62" rx="3" fill="#7A4FB3"/>
+<text x="48" y="259" font-size="13.5" font-weight="700" fill="#0A2324">ENTSO-E</text><text x="48" y="280" font-size="11.5" fill="#5B6B82">priorité 3</text>
+<text x="266" y="272" text-anchor="end" font-size="15" font-weight="700" fill="#7A4FB3">53 804 MW</text>
+<path d="M282,265 C330,265 330,191 372,191" fill="none" stroke="#5B6B82" stroke-width="1.6" marker-end="url(#f)"/>
+<rect x="376" y="118" width="300" height="146" rx="12" fill="#0A2324"/>
+<text x="394" y="146" font-size="14" font-weight="700" fill="#fff">Golden record : mart.vw_MixJour</text>
+<text x="394" y="172" font-size="12" fill="#B9DDD7">pour chaque zone et chaque jour, la source</text>
+<text x="394" y="192" font-size="12" fill="#B9DDD7">de meilleure priorité qui a des données</text>
+<text x="394" y="212" font-size="12" fill="#B9DDD7">RTE, puis éCO2mix, puis ENTSO-E</text>
+<text x="394" y="232" font-size="12" fill="#B9DDD7">les autres restent consultables</text>
+<rect x="700" y="118" width="270" height="146" rx="12" fill="#fff" stroke="#F2C12E" stroke-width="2"/>
+<text x="716" y="146" font-size="14" font-weight="700" fill="#0A2324">Contrôle CONCORDANCE</text>
+<text x="716" y="172" font-size="12" fill="#0A2324">écart entre sources sur un jour complet</text>
+<text x="716" y="192" font-size="12" fill="#1F6E43" font-weight="700">ici : 0,2 %, sous le seuil de 5 %</text>
+<text x="716" y="212" font-size="12" fill="#0A2324">au-delà : anomalie dans dq.Anomalie,</text>
+<text x="716" y="232" font-size="12" fill="#0A2324">l'une des sources a un problème</text>
+<line x1="678" y1="191" x2="696" y2="191" stroke="#5B6B82" stroke-width="1.6" marker-end="url(#f)"/>
+<text x="30" y="332" font-size="11" font-weight="700" fill="#5B6B82" letter-spacing="1.3">RANG DE QUALITÉ : UNE VALEUR NE RECULE JAMAIS</text>
+<rect x="30" y="346" width="150" height="60" rx="10" fill="#fff" stroke="#E4572E" stroke-width="2"/><text x="42" y="370" font-size="13" font-weight="700" fill="#0A2324">Temps réel</text><text x="42" y="390" font-size="10.5" fill="#5B6B82">publié dans l'heure</text>
+<line x1="182" y1="376" x2="190" y2="376" stroke="#5B6B82" stroke-width="1.6" marker-end="url(#f)"/>
+<rect x="192" y="346" width="150" height="60" rx="10" fill="#fff" stroke="#F2C12E" stroke-width="2"/><text x="204" y="370" font-size="13" font-weight="700" fill="#0A2324">Consolidé</text><text x="204" y="390" font-size="10.5" fill="#5B6B82">le mois suivant</text>
+<line x1="344" y1="376" x2="352" y2="376" stroke="#5B6B82" stroke-width="1.6" marker-end="url(#f)"/>
+<rect x="354" y="346" width="150" height="60" rx="10" fill="#fff" stroke="#0E9F8E" stroke-width="2"/><text x="366" y="370" font-size="13" font-weight="700" fill="#0A2324">Définitif</text><text x="366" y="390" font-size="10.5" fill="#5B6B82">l'année suivante</text>
+<text x="30" y="432" font-size="11.5" fill="#0A2324">Le consolidé <tspan font-weight="700">révise</tspan> le temps réel : l'ancienne valeur part dans l'historique.</text>
+<text x="30" y="450" font-size="11.5" fill="#0A2324">Un rejeu du temps réel n'écrase <tspan font-weight="700">jamais</tspan> un chiffre consolidé ou définitif.</text>
+<text x="530" y="332" font-size="11" font-weight="700" fill="#5B6B82" letter-spacing="1.3">UN JOUR N'A PAS TOUJOURS 24 HEURES</text>
+<text x="530" y="363" font-size="11.5" fill="#0A2324">29 mars 2026</text><rect x="650" y="351" width="230" height="16" rx="4" fill="#2F7BBF"/><text x="886" y="364" font-size="12" font-weight="700" fill="#0A2324">23 h</text>
+<text x="530" y="391" font-size="11.5" fill="#0A2324">un jour ordinaire</text><rect x="650" y="379" width="240" height="16" rx="4" fill="#9DB3AE"/><text x="896" y="392" font-size="12" font-weight="700" fill="#0A2324">24 h</text>
+<text x="530" y="419" font-size="11.5" fill="#0A2324">25 octobre 2026</text><rect x="650" y="407" width="250" height="16" rx="4" fill="#E4572E"/><text x="906" y="420" font-size="12" font-weight="700" fill="#0A2324">25 h</text>
+<text x="530" y="450" font-size="11.5" fill="#0A2324">Énergie du jour = puissance moyenne × <tspan font-weight="700">vraie durée</tspan> du jour local.</text>
+<rect x="30" y="472" width="940" height="34" rx="8" fill="#14403E"/><text x="46" y="494" font-size="12" fill="#E6FFFB">Tout est stocké en UTC, où chaque instant est unique ; l'heure locale de la zone n'est calculée qu'à la sortie, par jointure sur core.FuseauDecalage.</text>
+</svg>

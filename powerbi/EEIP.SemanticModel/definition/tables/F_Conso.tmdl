@@ -1,0 +1,97 @@
+/// Consommation quotidienne, pointe et creux, prévision de la veille.
+table F_Conso
+	lineageTag: e9c1bed6-29d2-5f0a-b037-974ebaf62983
+
+	column Zone
+		dataType: string
+		isHidden
+		lineageTag: a86a25cc-fb73-50e9-914b-22f4be70bc86
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		dataType: dateTime
+		isHidden
+		formatString: dd/MM/yyyy
+		lineageTag: dd8a4305-b36c-5d4e-984e-6835b769ce1a
+		summarizeBy: none
+		sourceColumn: Jour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: e35a381c-39c2-5617-8f37-1ce78398f009
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsoMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: 57fb0c1f-bd59-555c-8f65-aff457487115
+		summarizeBy: none
+		sourceColumn: ConsoMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column PointeMW
+		dataType: double
+		formatString: #,0
+		lineageTag: bb6681cc-9eb5-5888-8169-4a785cd02ee5
+		summarizeBy: none
+		sourceColumn: PointeMW
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreuxMW
+		dataType: double
+		formatString: #,0
+		lineageTag: 75f0d7d8-ea11-5d3e-ac99-2ba7b10c4ed9
+		summarizeBy: none
+		sourceColumn: CreuxMW
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrevisionMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: df21df8d-47d6-5419-a888-7ae570ab7d9e
+		summarizeBy: none
+		sourceColumn: PrevisionMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column GazMWh
+		dataType: double
+		formatString: #,0
+		lineageTag: fcc8a2c4-e5ac-5428-9657-866c78f31236
+		summarizeBy: none
+		sourceColumn: GazMWh
+
+		annotation SummarizationSetBy = Automatic
+
+	column Completude
+		dataType: double
+		formatString: 0%
+		lineageTag: 61521d7e-7abd-5631-b14e-02174df74740
+		summarizeBy: none
+		sourceColumn: Completude
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Conso = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "ConsoJour"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "Jour", "Source", "ConsoMWh", "PointeMW", "CreuxMW", "PrevisionMWh", "GazMWh", "Completude"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"Jour", type date}, {"Source", type text}, {"ConsoMWh", type number}, {"PointeMW", type number}, {"CreuxMW", type number}, {"PrevisionMWh", type number}, {"GazMWh", type number}, {"Completude", type number}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

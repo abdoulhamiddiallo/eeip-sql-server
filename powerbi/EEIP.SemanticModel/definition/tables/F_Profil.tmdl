@@ -1,0 +1,80 @@
+/// La journée type de chaque mois, heure locale par heure locale.
+table F_Profil
+	lineageTag: 6519e61a-b1f9-5ac0-9fee-8b798da97288
+
+	column Zone
+		dataType: string
+		isHidden
+		lineageTag: 42b81b25-2b44-5cea-a4ea-07b9799bf702
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Annee
+		dataType: int64
+		formatString: 0
+		lineageTag: fa2189ae-9a19-5d60-8f8a-357b65e198cb
+		summarizeBy: none
+		sourceColumn: Annee
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mois
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1684fcd2-2d80-516f-a4e0-154aaff97bab
+		summarizeBy: none
+		sourceColumn: Mois
+
+		annotation SummarizationSetBy = Automatic
+
+	column Heure
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 812b340b-8b20-58a6-b8fc-2bed7b7dea92
+		summarizeBy: none
+		sourceColumn: Heure
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grandeur
+		dataType: string
+		lineageTag: c2eb8e07-67e9-5736-abc5-a8909c41f4ad
+		summarizeBy: none
+		sourceColumn: Grandeur
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valeur
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 873dfabf-899f-57b9-bea5-18a6fcfc33e3
+		summarizeBy: none
+		sourceColumn: Valeur
+
+		annotation SummarizationSetBy = Automatic
+
+	column NbJours
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f65e5f0-4399-5720-a2ec-7ea98b00a34f
+		summarizeBy: none
+		sourceColumn: NbJours
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Profil = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Serveur, Base),
+				    Vue = Source{[Schema = "bi", Item = "ProfilHoraire"]}[Data],
+				    Colonnes = Table.SelectColumns(Vue, {"Zone", "Annee", "Mois", "Heure", "Grandeur", "Valeur", "NbJours"}),
+				    Typees = Table.TransformColumnTypes(Colonnes, {{"Zone", type text}, {"Annee", Int64.Type}, {"Mois", Int64.Type}, {"Heure", Int64.Type}, {"Grandeur", type text}, {"Valeur", type number}, {"NbJours", Int64.Type}}, "en-US")
+				in
+				    Typees
+
+	annotation PBI_ResultType = Table

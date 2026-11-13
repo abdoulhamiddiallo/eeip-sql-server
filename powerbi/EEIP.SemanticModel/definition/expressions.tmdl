@@ -1,0 +1,11 @@
+/// Instance SQL Server qui héberge la base EEIP (le nom affiché par SSMS).
+expression Serveur = "localhost\MSSQLSERVER2022" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: df27906d-c68a-5719-a894-5a91277e13e5
+
+	annotation PBI_ResultType = Text
+
+/// Nom de la base.
+expression Base = "EEIP" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 273fbaf1-8d09-502e-abe3-c51f986ee0fa
+
+	annotation PBI_ResultType = Text
